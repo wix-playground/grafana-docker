@@ -6,6 +6,13 @@ USER root
 
 ARG GF_INSTALL_IMAGE_RENDERER_PLUGIN="true"
 
+# TINI is added this way (and not with --init falg) because we use chef to provision
+# our docker cookbook is forked by forket 5 years ago and that version doesn't support --init flag
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--", "/run.sh"]
+
 ENV GF_PATHS_PLUGINS="/var/lib/grafana-plugins"
 
 RUN mkdir -p "$GF_PATHS_PLUGINS" && \
