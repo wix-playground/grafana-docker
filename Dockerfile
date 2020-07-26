@@ -1,4 +1,4 @@
-ARG GRAFANA_VERSION="7.1.0"
+ARG GRAFANA_VERSION="7.1.1"
 
 FROM grafana/grafana:${GRAFANA_VERSION}
 
@@ -39,7 +39,7 @@ RUN if [ $GF_INSTALL_IMAGE_RENDERER_PLUGIN = "true" ]; then \
         plugins install grafana-image-renderer; \
 fi
 
-ARG GF_INSTALL_PLUGINS="ayoungprogrammer-finance-datasource,blackmirror1-statusbygroup-panel,briangann-datatable-panel,btplc-trend-box-panel,doitintl-bigquery-datasource,grafana-clock-panel,grafana-image-renderer,grafana-piechart-panel,grafana-polystat-panel,grafana-simple-json-datasource,jdbranham-diagram-panel,natel-discrete-panel,natel-plotly-panel,petrslavotinek-carpetplot-panel,raintank-worldping-app,ryantxu-ajax-panel,vertamedia-clickhouse-datasource,vonage-status-panel"
+ARG GF_INSTALL_PLUGINS="ayoungprogrammer-finance-datasource,blackmirror1-statusbygroup-panel,briangann-datatable-panel,btplc-trend-box-panel,doitintl-bigquery-datasource,grafana-clock-panel,grafana-image-renderer,grafana-piechart-panel,grafana-polystat-panel,grafana-simple-json-datasource,jdbranham-diagram-panel,natel-discrete-panel,natel-plotly-panel,petrslavotinek-carpetplot-panel,raintank-worldping-app,ryantxu-ajax-panel,vertamedia-clickhouse-datasource,vonage-status-panel,grafana-synthetic-monitoring-app"
 
 RUN if [ ! -z "${GF_INSTALL_PLUGINS}" ]; then \
     OLDIFS=$IFS; \
