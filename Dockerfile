@@ -53,3 +53,5 @@ RUN if [ ! -z "${GF_INSTALL_PLUGINS}" ]; then \
 fi
 
 RUN grafana-cli --pluginUrl https://github.com/mikhno-s/clickhouse-grafana/archive/master.zip plugins install vertamedia-clickhouse-datasource
+RUN grafana-cli --pluginUrl https://github.com/NovatecConsulting/novatec-service-dependency-graph-panel/releases/download/v3.0.2/novatec-sdg-panel.zip plugins install novatec-sdg-panel
+
