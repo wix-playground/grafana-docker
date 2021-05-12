@@ -1,4 +1,4 @@
-ARG GRAFANA_VERSION="7.5.5"
+ARG GRAFANA_VERSION="7.5.6"
 
 FROM grafana/grafana:${GRAFANA_VERSION}
 
@@ -55,3 +55,4 @@ fi
 RUN grafana-cli --pluginUrl https://github.com/mikhno-s/clickhouse-grafana/archive/master.zip plugins install vertamedia-clickhouse-datasource
 
 
+RUN grafana-cli --pluginUrl https://github.com/yesoreyeram/yesoreyeram-boomtable-panel/releases/download/v1.5.0-alpha.3/yesoreyeram-boomtable-panel-1.5.0-alpha.3.zip  yesoreyeram-boomtable-panel
