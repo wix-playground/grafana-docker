@@ -54,5 +54,4 @@ fi
 
 RUN grafana-cli --pluginUrl https://github.com/mikhno-s/clickhouse-grafana/archive/master.zip plugins install vertamedia-clickhouse-datasource
 
-
 RUN grafana-cli --pluginUrl https://github.com/yesoreyeram/yesoreyeram-boomtable-panel/releases/download/v1.5.0-alpha.3/yesoreyeram-boomtable-panel-1.5.0-alpha.3.zip  plugins install yesoreyeram-boomtable-panel
