@@ -42,6 +42,7 @@ RUN if [ $GF_INSTALL_IMAGE_RENDERER_PLUGIN = "true" ]; then \
 fi
 
 ARG GF_INSTALL_PLUGINS="ayoungprogrammer-finance-datasource,blackmirror1-statusbygroup-panel,briangann-datatable-panel,btplc-trend-box-panel,doitintl-bigquery-datasource,grafana-clock-panel,grafana-image-renderer,grafana-piechart-panel,grafana-polystat-panel,grafana-simple-json-datasource,jdbranham-diagram-panel,natel-discrete-panel,natel-plotly-panel,petrslavotinek-carpetplot-panel,raintank-worldping-app,ryantxu-ajax-panel,vonage-status-panel,grafana-synthetic-monitoring-app"
+ENV GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=vertamedia-clickhouse-datasource
 
 RUN if [ ! -z "${GF_INSTALL_PLUGINS}" ]; then \
     OLDIFS=$IFS; \
@@ -52,6 +53,6 @@ RUN if [ ! -z "${GF_INSTALL_PLUGINS}" ]; then \
     done; \
 fi
 
-RUN grafana-cli --pluginUrl https://github.com/mikhno-s/clickhouse-grafana/archive/master.zip plugins install vertamedia-clickhouse-datasource
+RUN grafana-cli  --pluginsDir "$GF_PATHS_PLUGINS" --pluginUrl https://github.com/mikhno-s/clickhouse-grafana/archive/master.zip plugins install vertamedia-clickhouse-datasource
 
 
